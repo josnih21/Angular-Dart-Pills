@@ -8,10 +8,13 @@ class HighlightDirective {
   @Input('myHighlight')
   String highlightColor;
 
+  @Input()
+  String defaultColor;
+
   HighlightDirective(this._element);
 
   @HostListener('mouseenter')
-  void onMouseEnter() => _highlight(color: highlightColor ?? 'red');
+  void onMouseEnter() => _highlight(color: highlightColor ?? defaultColor ?? 'red');
 
   @HostListener('mouseleave')
   void onMouseLeave() => _highlight();
