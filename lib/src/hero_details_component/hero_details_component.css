@@ -1,0 +1,24 @@
+/* The :host selector is the only way to target the host element. You can’t reach the host element from inside the component with other selectors because it’s not part of the component’s own template. The host element is in a parent component’s template. */
+
+:host {
+    display: block;
+    border: 1px solid black;
+}
+
+:host(.active) {
+    border-width: 3px;
+}
+
+
+/* Use the :host-context() pseudo-class selector, which works just like the function form of :host(). The :host-context() selector looks for a CSS class in any ancestor of the component host element, up to the document root. The :host-context() selector is useful when combined with another selector. */
+
+:host-context(.theme-light) h2 {
+    background-color: #eef;
+}
+
+
+/* Use the ::ng-deep selector to force a style down through the child component tree into all the child component views. The ::ng-deep selector works to any depth of nested components, and it applies to both the view children and content children of the component. */
+
+:host ::ng-deep h3 {
+    font-style: italic;
+}
